@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <%# if @user.reservations.count = 0 %>
+  <% if @user.reservations.count == 0 %>
 
   <div class="field">
     <%= f.label :from %><br>
@@ -29,9 +29,9 @@
     <%= f.submit %>
   </div>
 
-<%# else %>
+<% else %>
 
-<%# end %>
+  <% end %>
 
 
 <% end %>

@@ -1,11 +1,16 @@
 class Reservation < ActiveRecord::Base
   belongs_to :user
   has_many :rooms
-  # validate :not_past_date
+   validate :not_past_date
 
-    # def not_past_date
-    #   if self.date < Date.today
-    #     errors.add(:date, 'not in past')
-    #   end
-    # end
+    def not_past_date
+      # byebug
+      if self.from < Date.today
+        errors.add(:date, 'it has to be from today')
+      end
+      if self.to < Date.tomorrow
+        errors.add(:date, 'cannot be today')
+      end
+    end
+
 end

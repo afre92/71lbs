@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   root "hotels#index"
-  resources :rooms
   resources :users do
     resources :reservations, only: [:create, :destroy, :update]
+  end
+
+  resources :reservations do
+    resources :rooms
   end
   get 'signup'  => 'hotels#new'
   resources :hotels

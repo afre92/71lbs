@@ -17,3 +17,20 @@
 
 <%= link_to 'Edit', edit_reservation_path(@reservation) %> |
 <%= link_to 'Back', reservations_path %>
+
+
+<div class="field">
+  <h2> rooms </h2>
+
+  <%= render "rooms/form" %>
+
+  <ul>
+    <% @reservation.rooms.each do |room| %>
+    <li>
+
+       <%= room.number %>
+    </li>
+    <% end %>
+
+
+</div>
