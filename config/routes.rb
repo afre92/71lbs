@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   root "hotels#index"
   resources :rooms
-  resources :reservations
-  resources :users
+  resources :users do
+    resources :reservations, only: [:create, :destroy, :update]
+  end
   get 'signup'  => 'hotels#new'
   resources :hotels
   get '/login' => 'sessions#new'

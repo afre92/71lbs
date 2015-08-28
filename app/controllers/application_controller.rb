@@ -9,6 +9,9 @@ def current_hotel
   @current_hotel ||= Hotel.find(session[:hotel_id]) if session[:hotel_id]
 end
 
+
+
+
 def require_hotel
   redirect_to '/login' unless current_hotel
 end

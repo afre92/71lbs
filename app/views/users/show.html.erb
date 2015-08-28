@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<h1> User info </h1>
 <p>
   <strong>First name:</strong>
   <%= @user.first_name %>
@@ -14,6 +14,19 @@
   <strong>Hotel:</strong>
   <%= @user.hotel %>
 </p>
+
+
+<div class="field">
+  <h3>Reservations</h3>
+  <%= render "reservations/form" %>
+
+  <ul>
+    <% @user.reservations.each do |reservation|%>
+    <li>
+      <%= reservation.from %> - <%= reservation.to %>
+    </li>
+    <% end %>
+
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
