@@ -1,0 +1,8 @@
+<h1>Sign up</h1>
+
+    <%= form_for(@hotel) do |f| %>
+      <%= f.text_field :name, :placeholder => "Name" %>
+      <%= f.email_field :email, :placeholder => "Email" %>
+      <%= f.password_field :password, :placeholder => "Password" %>
+      <%= f.submit "Create an account", class: "btn-submit" %>
+    <% end %>
