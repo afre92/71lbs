@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<h1> User info </h1>
+<h1> Visitor info </h1>
 <p>
   <strong>First name:</strong>
   <%= @user.first_name %>
@@ -22,11 +22,12 @@
 
   <ul>
     <% @user.reservations.each do |reservation|%>
-    <li>
-      <%= reservation.from %> - <%= reservation.to %>
-    </li>
+        <li><p>Check-in</p><%= reservation.from %>   <p>Check-out</p><%= reservation.to %></li>
+        <li><p>Room number</p><%= reservation.room.number %></li>
     <% end %>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  </ul>
+    <% if @hotel.reservartions.count == 1 %>
+    <%= link_to 'Edit reservation', edit_reservation_path(@reservation) %>
+    <% end %>
+    <%= link_to 'Edit Visitor', edit_user_path(@user) %> |
+    <%= link_to 'Done', @user.hotel %>

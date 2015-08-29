@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   @hotel = Hotel.find_by_email(params[:session][:email])
   if @hotel && @hotel.authenticate(params[:session][:password])
     session[:hotel_id] = @hotel.id
-    redirect_to '/'
+    redirect_to @hotel
   else
     redirect_to 'login'
   end

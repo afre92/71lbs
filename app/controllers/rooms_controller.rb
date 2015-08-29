@@ -1,6 +1,8 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: [:show, :edit, :update, :destroy,]
-  before_action :set_reservation, only: [:create]
+  before_action :set_room, only: [:show, :edit, :update, :destroy]
+  before_action :require_hotel, only: [:index, :show, :new, :destroy, :edit]
+  before_action :set_hotel, only: [:create]
+
 
   # GET /rooms
   # GET /rooms.json
@@ -25,15 +27,15 @@ class RoomsController < ApplicationController
   # POST /rooms
   # POST /rooms.json
   def create
-    @room = @reservation.rooms.new(room_params)
-    # @room.reservation = @reservation
+    @room = @hotel.rooms.new(room_params)
+    # @room.hotel = @room
 
     respond_to do |format|
       if @room.save
-        format.html { redirect_to @room.reservation, notice: 'Room was successfully created.' }
+        format.html { redirect_to @room.hotel, notice: 'Room was successfully created.' }
         format.json { render :show, status: :created, location: @room }
       else
-        format.html { render :new }
+        format.html { redirect_to @hotel, notice: 'Room could not be created, please choose a nonexisting number'}
         format.json { render json: @room.errors, status: :unprocessable_entity }
       end
     end
@@ -44,7 +46,7 @@ class RoomsController < ApplicationController
   def update
     respond_to do |format|
       if @room.update(room_params)
-        format.html { redirect_to @room.reservation, notice: 'Room was successfully updated.' }
+        format.html { redirect_to @room.hotel, notice: 'Room was successfully updated.' }
         format.json { render :show, status: :ok, location: @room }
       else
         format.html { render :edit }
@@ -58,25 +60,21 @@ class RoomsController < ApplicationController
   def destroy
     @room.destroy
     respond_to do |format|
-      format.html { redirect_to @Reservation, notice: 'Room was successfully destroyed.' }
+      format.html { redirect_to @room.hotel, notice: 'Room was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-
-    def set_reservation
-
-      @reservation = Reservation.find(params[:reservation_id])
+    def set_hotel
+      @hotel = Hotel.find(params[:hotel_id])
     end
-
     # Use callbacks to share common setup or constraints between actions.
     def set_room
       @room = Room.find(params[:id])
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_params
-      params.require(:room).permit(:number, :reservation_id)
+      params.require(:room).permit(:number, :reservation_id, :hotel_id)
     end
 end

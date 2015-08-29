@@ -1,17 +1,19 @@
 Rails.application.routes.draw do
   root "hotels#index"
+  resources :hotels do
+    resources :users
+    resources :rooms
+  end
   resources :users do
     resources :reservations, only: [:create, :destroy, :update]
   end
-
-  resources :reservations do
-    resources :rooms
-  end
+  resources :rooms
   get 'signup'  => 'hotels#new'
-  resources :hotels
+  # resources :hotels
   get '/login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+  get 'logout' => 'sessions#destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150827232934) do
+ActiveRecord::Schema.define(version: 20150828230722) do
 
   create_table "hotels", force: :cascade do |t|
     t.string   "name"
@@ -27,8 +27,10 @@ ActiveRecord::Schema.define(version: 20150827232934) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "room_id"
   end
 
+  add_index "reservations", ["room_id"], name: "index_reservations_on_room_id"
   add_index "reservations", ["user_id"], name: "index_reservations_on_user_id"
 
   create_table "rooms", force: :cascade do |t|
@@ -36,8 +38,10 @@ ActiveRecord::Schema.define(version: 20150827232934) do
     t.integer  "reservation_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "hotel_id"
   end
 
+  add_index "rooms", ["hotel_id"], name: "index_rooms_on_hotel_id"
   add_index "rooms", ["reservation_id"], name: "index_rooms_on_reservation_id"
 
   create_table "users", force: :cascade do |t|

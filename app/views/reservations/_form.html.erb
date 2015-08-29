@@ -12,7 +12,7 @@
   <% end %>
 
   <% if @user.reservations.count == 0 %>
-
+ <!-- </div> -->
   <div class="field">
     <%= f.label :from %><br>
     <%= f.date_select :from %>
@@ -21,10 +21,10 @@
     <%= f.label :to %><br>
     <%= f.date_select :to %>
   </div>
-  <!-- <div class="field"> -->
-    <%# f.label :user_id %><br>
-    <%# f.text_field :user_id %>
-  <!-- </div> -->
+  <div class="field">
+   <%= f.label :room %>
+   <%= collection_select( :reservation, :room_id, Room.all, :id, :number, {}, { :multiple => false } ) %>
+ </div>
   <div class="actions">
     <%= f.submit %>
   </div>

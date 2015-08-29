@@ -1,0 +1,49 @@
+<h1> Visitors</h1>
+<p id="notification" style="color: red"><%= notice %></p>
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hotel.users.each do |user| %>
+      <tr>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= link_to 'Add reservation', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<h2> Add a Visitor </h2>
+<%= render 'users/form' %>
+
+<h1>Rooms</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hotel.rooms.each do |room| %>
+      <tr>
+        <td><%= room.number %></td>
+        <td><button><%= link_to 'Edit', edit_room_path(room) %></button></td>
+        <td><button><%= link_to 'Delete', room, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<h2> Add a room </h2>
+<%= render 'rooms/form' %>
+<br>

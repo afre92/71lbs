@@ -1,6 +1,6 @@
 class Reservation < ActiveRecord::Base
   belongs_to :user
-  has_many :rooms
+  belongs_to :room
    validate :not_past_date
 
     def not_past_date

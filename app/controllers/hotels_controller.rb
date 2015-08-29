@@ -1,15 +1,16 @@
 class HotelsController < ApplicationController
+before_action :set_hotel, only: [:show]
 before_action :require_hotel, only: [:index, :show]
 
-
-
   def index
-    @hotels = Hotel.all
-    @users= User.all
-    @rooms= Room.all
+    # @hotels = Hotel.all
+    @rooms = Room.all
+
   end
 
   def show
+    @user = User.new
+    @room = Room.new
   end
 
   def new
@@ -25,8 +26,11 @@ before_action :require_hotel, only: [:index, :show]
     end
   end
   private
+  def set_hotel
+    @hotel = Hotel.find(params[:id])
+  end
     def hotel_params
-      params.require(:hotel).permit(:name, :email, :password)
+      params.require(:hotel).permit(:name, :email, :password, :hotel_id)
     end
 
 end
