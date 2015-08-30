@@ -58,10 +58,15 @@ class RoomsController < ApplicationController
   # DELETE /rooms/1
   # DELETE /rooms/1.json
   def destroy
+    if @room.reservations.count >= 1
+      flash[:notice] = "Room can't be remove because it has a reservation attached"
+      redirect_to @room.hotel
+    else
     @room.destroy
     respond_to do |format|
       format.html { redirect_to @room.hotel, notice: 'Room was successfully destroyed.' }
       format.json { head :no_content }
+    end
     end
   end
 
