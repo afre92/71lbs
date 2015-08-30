@@ -18,22 +18,6 @@
 
 <div class="field">
   <h3>Reservations</h3>
-  <p>
-    <strong>From:</strong>
-    <%= @reservation.from %>
-  </p>
-
-  <p>
-    <strong>To:</strong>
-    <%= @reservation.to %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= @reservation.user %>
-  </p>
-
-  <%# link_to 'Edit', user_reservation_path(@user, reservation) %>
   <%= render "reservations/form" %>
 
   <ul>
@@ -42,6 +26,7 @@
         <li><p>Room number</p><%= reservation.room.number %></li>
     <% end %>
   </ul>
+
 
     <%= link_to 'Edit Visitor', edit_user_path(@user) %> |
     <%= link_to 'Done', @user.hotel %>
