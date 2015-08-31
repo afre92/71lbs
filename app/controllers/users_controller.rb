@@ -15,6 +15,13 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @reservation = Reservation.new
+    # def available_rooms
+  
+    # @available_rooms
+    #   if @`room.reservations == nil
+    #     @rooms
+    #   end
+    # end
   end
 
   # GET /users/new
@@ -65,6 +72,8 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

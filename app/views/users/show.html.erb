@@ -22,7 +22,7 @@
 
   <ul>
     <% @user.reservations.each do |reservation|%>
-        <li><p>Check-in</p><%= reservation.from %>   <p>Check-out</p><%= reservation.to %></li>
+        <li><p>Check-in</p><%= reservation.arrival %>   <p>Check-out</p><%= reservation.departure %></li>
         <li><p>Room number</p><%= reservation.room.number %></li>
     <% end %>
   </ul>

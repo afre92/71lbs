@@ -14,12 +14,12 @@
   <% if @user.reservations.count == 0 %>
  <!-- </div> -->
   <div class="field">
-    <%= f.label :from %><br>
-    <%= f.date_select :from %>
+    <%= f.label :arrival %><br>
+    <%= f.date_select :arrival %>
   </div>
   <div class="field">
-    <%= f.label :to %><br>
-    <%= f.date_select :to %>
+    <%= f.label :departure %><br>
+    <%= f.date_select :departure %>
   </div>
   <div class="field">
    <%= f.label :room %>

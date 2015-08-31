@@ -3,5 +3,5 @@ class Room < ActiveRecord::Base
   has_many :reservations
   has_many :users, through: :reservations
   validates_uniqueness_of :number
-
+ 
 end

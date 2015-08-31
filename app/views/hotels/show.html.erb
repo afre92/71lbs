@@ -38,6 +38,7 @@
     <% @hotel.rooms.each do |room| %>
       <tr>
         <td><%= room.number %></td>
+        <td><button><%= link_to 'Show', room %></button></td>
         <td><button><%= link_to 'Edit', edit_room_path(room) %></button></td>
         <td><button><%= link_to 'Delete', room, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
       </tr>
@@ -47,3 +48,8 @@
 <h2> Add a room </h2>
 <%= render 'rooms/form' %>
 <br>
+<div class="field">
+ <%# f.label :room %>
+ <%# collection_select( :hotel, :room_id, @r.available_rooms, :id, :number, {}, { :multiple => false } ) %>
+ <%= @available_rooms %>
+ </div>

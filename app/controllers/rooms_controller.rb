@@ -13,6 +13,7 @@ class RoomsController < ApplicationController
   # GET /rooms/1
   # GET /rooms/1.json
   def show
+
   end
 
   # GET /rooms/new
@@ -60,7 +61,7 @@ class RoomsController < ApplicationController
   def destroy
     if @room.reservations.count >= 1
       flash[:notice] = "Room can't be remove because it has a reservation attached"
-      redirect_to @room.hotel
+      redirect_to @room
     else
     @room.destroy
     respond_to do |format|
@@ -82,4 +83,4 @@ class RoomsController < ApplicationController
     def room_params
       params.require(:room).permit(:number, :reservation_id, :hotel_id)
     end
-end
+ end
