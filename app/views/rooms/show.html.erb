@@ -2,13 +2,24 @@
 
 <p>
   <strong>Number:</strong>
-  <%= @room.number %>
+  <%= @room.number %><br>
+  <%= link_to 'Edit', edit_room_path(@room) %> |
+  <%= link_to 'Back', rooms_path %>
+
+  </p>
+  <h2> Reservations </h2>
+  <p>
+  <%= form_tag room_path, :method => 'get' do %>
+  <%= date_field_tag :search, params[:search] %>
+  <%= submit_tag "Search", :name => nil %>
+  <% end %>
+  <p>
+  <% @reservations.each do |r| %>
+  <%= r.user.first_name %> | <%= r.arrival %> | <%= r.departure %><br>
+  <% end %>
 </p>
 
 <!-- <p>
   <strong>Reservation:</strong>
   <%# @room.reservation %>
 </p> -->
-
-<%= link_to 'Edit', edit_room_path(@room) %> |
-<%= link_to 'Back', rooms_path %>

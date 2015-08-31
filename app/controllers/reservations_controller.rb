@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
-  before_action :set_user, only: [:create]
+  before_action :set_user, only: [:create, :edit]
 
   # GET /reservations
   # GET /reservations.json
@@ -21,6 +21,7 @@ class ReservationsController < ApplicationController
 
   # GET /reservations/1/edit
   def edit
+
   end
 
   # POST /reservations

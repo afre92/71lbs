@@ -14,6 +14,12 @@ class RoomsController < ApplicationController
   # GET /rooms/1.json
   def show
 
+    if params[:search]
+      @reservations = @room.reservations.where(['arrival LIKE ?', "%#{params[:search]}%"])
+    else
+      @reservations = @room.reservations
+    end
+
   end
 
   # GET /rooms/new
@@ -61,7 +67,7 @@ class RoomsController < ApplicationController
   def destroy
     if @room.reservations.count >= 1
       flash[:notice] = "Room can't be remove because it has a reservation attached"
-      redirect_to @room
+      redirect_to @room.hotel
     else
     @room.destroy
     respond_to do |format|

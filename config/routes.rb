@@ -5,8 +5,9 @@ Rails.application.routes.draw do
     resources :rooms
   end
   resources :users do
-    resources :reservations, only: [:create, :destroy, :update]
+    resources :reservations, only: [:create, :destroy, :update, :edit, :show]
   end
+  # resources :reservations
   resources :rooms
   get 'signup'  => 'hotels#new'
   # resources :hotels

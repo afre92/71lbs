@@ -24,9 +24,9 @@
     <% @user.reservations.each do |reservation|%>
         <li><p>Check-in</p><%= reservation.arrival %>   <p>Check-out</p><%= reservation.departure %></li>
         <li><p>Room number</p><%= reservation.room.number %></li>
+        <%= link_to 'Edit', edit_user_reservation_path(@user, reservation) %>
     <% end %>
   </ul>
-
 
     <%= link_to 'Edit Visitor', edit_user_path(@user) %> |
     <%= link_to 'Done', @user.hotel %>
