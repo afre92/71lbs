@@ -35,7 +35,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
  gem "sinatra"
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+ ruby "2.2.2"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

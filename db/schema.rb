@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150901083638) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "hotels", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -30,8 +33,8 @@ ActiveRecord::Schema.define(version: 20150901083638) do
     t.integer  "room_id"
   end
 
-  add_index "reservations", ["room_id"], name: "index_reservations_on_room_id"
-  add_index "reservations", ["user_id"], name: "index_reservations_on_user_id"
+  add_index "reservations", ["room_id"], name: "index_reservations_on_room_id", using: :btree
+  add_index "reservations", ["user_id"], name: "index_reservations_on_user_id", using: :btree
 
   create_table "rooms", force: :cascade do |t|
     t.integer  "number"
@@ -42,8 +45,8 @@ ActiveRecord::Schema.define(version: 20150901083638) do
     t.boolean  "booked",         default: false
   end
 
-  add_index "rooms", ["hotel_id"], name: "index_rooms_on_hotel_id"
-  add_index "rooms", ["reservation_id"], name: "index_rooms_on_reservation_id"
+  add_index "rooms", ["hotel_id"], name: "index_rooms_on_hotel_id", using: :btree
+  add_index "rooms", ["reservation_id"], name: "index_rooms_on_reservation_id", using: :btree
 
   create_table "sessions", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -58,6 +61,11 @@ ActiveRecord::Schema.define(version: 20150901083638) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "users", ["hotel_id"], name: "index_users_on_hotel_id"
+  add_index "users", ["hotel_id"], name: "index_users_on_hotel_id", using: :btree
 
+  add_foreign_key "reservations", "rooms"
+  add_foreign_key "reservations", "users"
+  add_foreign_key "rooms", "hotels"
+  add_foreign_key "rooms", "reservations"
+  add_foreign_key "users", "hotels"
 end
