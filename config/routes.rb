@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "hotels#index"
+  root "sessions#new"
   resources :hotels do
     resources :users
     resources :rooms

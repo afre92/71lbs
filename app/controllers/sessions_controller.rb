@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     session[:hotel_id] = @hotel.id
     redirect_to @hotel
   else
-    redirect_to 'login'
+    redirect_to login_path
   end
 end
 

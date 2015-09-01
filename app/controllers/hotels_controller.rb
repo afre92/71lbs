@@ -1,6 +1,6 @@
 class HotelsController < ApplicationController
 before_action :set_hotel, only: [:show]
-before_action :require_hotel, only: [:index, :show]
+ before_action :require_hotel, only: [:index, :show]
 
   def index
     # @hotels = Hotel.all
@@ -20,7 +20,7 @@ before_action :require_hotel, only: [:index, :show]
     @hotel = Hotel.new(hotel_params)
     if @hotel.save
       session[:hotel_id] = @hotel.id
-      redirect_to '/'
+      redirect_to @hotel
     else
       redirect_to '/signup'
     end
