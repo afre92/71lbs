@@ -15,7 +15,14 @@
   <% end %>
   <p>
   <% @reservations.each do |r| %>
-  <%= r.user.first_name %> | <%= r.arrival %> | <%= r.departure %><br>
+  <%= r.user.first_name %>
+  <% if r.departure < Date.today %> <!-- if the visitor is gone already -->
+  <p> was here from</p>
+   <%= r.arrival %> <p>to</p> <%= r.departure %><br>
+   <% else %>
+   <p> is going to be here from </p>
+   <%= r.arrival %> <p>to</p> <%= r.departure %><br>
+   <% end %>
   <% end %>
 </p>
 

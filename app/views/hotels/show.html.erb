@@ -1,55 +1,53 @@
-<h1> Visitors</h1>
-<p id="notification" style="color: red"><%= notice %></p>
-<table>
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @hotel.users.each do |user| %>
+<div class="content">
+  <h1> Visitors</h1>
+  <p id="notification" style="color: red"><%= notice %></p>
+  <table>
+    <thead>
       <tr>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
-        <td><%= link_to 'Add reservation', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>First name</th>
+        <th>Last name</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
-<h2> Add a Visitor </h2>
-<%= render 'users/form' %>
+    </thead>
 
-<h1>Rooms</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Number</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <tbody>
+      <% @hotel.users.each do |user| %>
+        <tr>
+          <td><%= user.first_name %></td>
+          <td><%= user.last_name %></td>
+          <td><%= link_to 'Add reservation', user %></td>
+          <td><%= link_to 'Edit', edit_user_path(user) %></td>
+          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <h2> Add a Visitor </h2>
+  <%= render 'users/form' %>
 
-  <tbody>
-    <% @hotel.rooms.each do |room| %>
+  <h1>Rooms</h1>
+  <table>
+    <thead>
       <tr>
-        <td><%= room.number %></td>
-        <td><button><%= link_to 'Show', room %></button></td>
-        <td><button><%= link_to 'Edit', edit_room_path(room) %></button></td>
-        <td><button><%= link_to 'Delete', room, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+        <th>Number</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<h2> Add a room </h2>
-<%= render 'rooms/form' %>
-<br>
-<div class="field">
- <%# f.label :room %>
- <%# collection_select( :hotel, :room_id, @r.available_rooms, :id, :number, {}, { :multiple => false } ) %>
- <%= @available_rooms %>
- </div>
+    </thead>
+
+    <tbody>
+      <% @hotel.rooms.each do |room| %>
+        <tr>
+          <td><%= room.number %></td>
+          <td><button><%= link_to 'Show', room %></button></td>
+          <td><button><%= link_to 'Edit', edit_room_path(room) %></button></td>
+          <td><button><%= link_to 'Delete', room, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <h2> Add a room </h2>
+  <%= render 'rooms/form' %>
+  <br>
+
+</div>

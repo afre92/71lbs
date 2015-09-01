@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hm</title>
+  <title>71lbs</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-  <% if current_hotel %>
-  <ul>
-    <li><%= current_hotel.name %></li>
-    <li><%= link_to "Log out", logout_path, method: "delete" %></li>
-  </ul>
-<% else %>
-  <ul> 
-    <li><%= link_to "Login", 'login' %></a></li>
-    <li><%= link_to "Signup", 'signup' %></a></li>
-  </ul>
-<% end %>
+<div class="container">
+    <nav class="navbar">
+      <% if current_hotel %>
+      <ul style="padding-top: 10px;">
+        <li style="color: white;"><%= current_hotel.name %></li>
+        <li style="float: right; padding-right: 10px;"><%= link_to "Log out", logout_path, method: "delete" %></li>
+      </ul>
+      <% else %>
+      <ul style="padding-top: 10px;">
+        <li><%= link_to "Login", 'login' %></a></li>
+        <li><%= link_to "Signup", 'signup' %></a></li>
+      </ul>
+    <% end %>
+  </nav>
+    <div class="banner">
+      <p>this is the banner</p>
+    </div>
+    <!-- <div class="content">
+      <p> this is the container </p>
+    <div> -->
+</div>
 
 <%= yield %>
 
