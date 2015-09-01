@@ -22,7 +22,12 @@
     <% end %>
   </nav>
     <div class="banner">
-    <h1 class="hotelsname"><%= @hotel.name %></h1>
+      <p id="notification" style="color: red"><%= notice %></p>
+      <% if current_hotel %>
+      <h1 class="hotelsname"><%= @hotel.name %></h1>
+      <% else %>
+      <h1 class="hotelsname"> Welcome </h1>
+      <% end %>
     </div>
     <!-- <div class="content">
       <p> this is the container </p>
