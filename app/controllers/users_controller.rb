@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :require_hotel, only: [:index, :show, :new, :destroy, :edit]
   before_action :set_hotel, only: [:create]
-
+  
   # GET /users
   # GET /users.json
   def index
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   def show
     @reservation = Reservation.new
     # def available_rooms
-  
+
     # @available_rooms
     #   if @`room.reservations == nil
     #     @rooms

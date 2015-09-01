@@ -1,23 +1,16 @@
-<div class="content">
+<div class="content" style="height: 100%; padding-bottom: 80px;">
 
-  <!-- <ul>
-    <li> -->
     <aside style="float: right;">
       <div class="mainforms">
         <h2 class="tittle"> Add a Visitor </h2>
         <%= render 'users/form' %>
       </div>
-    <!-- </li> -->
-    <!-- <li> -->
       <div class="mainforms">
         <h2 class="tittle" style="padding-top: 20px;"> Add a room </h2>
         <%= render 'rooms/form' %>
       </div>
     </aside>
-    <!-- </li> -->
-  <!-- </ul> -->
-  <!-- <ul style="float: right"> -->
-  <!-- <li> -->
+    <div class="maintables">
   <table>
     <thead>
         <td><h1 class="tittle">Visitors</h1></td><br>
@@ -32,16 +25,14 @@
         <tr>
           <td><%= user.first_name %></td>
           <td><%= user.last_name %></td>
-          <td><%= link_to 'Add reservation', user %></td>
-          <td><%= link_to 'Edit', edit_user_path(user) %></td>
-          <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><button><%= link_to 'Add reservation', user %></button></td>
+          <td><button><%= link_to 'Edit', edit_user_path(user) %></button></td>
+          <td><button><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
         </tr>
       <% end %>
     </tbody>
   </table>
   <br>
-<!-- </li> -->
-<!-- <li> -->
   <table>
     <thead>
       <th><h1 class="tittle">Rooms</h1></th>
@@ -55,7 +46,7 @@
       <% @hotel.rooms.each do |room| %>
         <tr>
           <td><%= room.number %></td>
-          <td><button><%= link_to 'Show', room %></button></td>
+          <td><button><%= link_to 'Show Reservation', room %></button></td>
           <td><button><%= link_to 'Edit', edit_room_path(room) %></button></td>
           <td><button><%= link_to 'Delete', room, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
         </tr>
@@ -63,6 +54,5 @@
     </tbody>
     </table>
         <br>
-    <!-- </li>
-  </ul> -->
+</div>
 </div>

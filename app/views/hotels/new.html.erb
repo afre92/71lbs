@@ -1,8 +1,10 @@
+<div class="content" style="text-align: center; padding-top: 80px; padding-bottom: 80px; height: 100%;">
 <h1>Sign up</h1>
 
     <%= form_for(@hotel) do |f| %>
-      <%= f.text_field :name, :placeholder => "Name" %>
-      <%= f.email_field :email, :placeholder => "Email" %>
-      <%= f.password_field :password, :placeholder => "Password" %>
-      <%= f.submit "Create an account", class: "btn-submit" %>
+      <%= f.text_field :name, :placeholder => "Name" %><br>
+      <%= f.email_field :email, :placeholder => "Email" %><br>
+      <%= f.password_field :password, :placeholder => "Password" %><br>
+      <%= f.submit "Create an account", class: "btn-submit" %><br>
     <% end %>
+</div>

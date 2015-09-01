@@ -11,7 +11,7 @@
     <nav class="navbar">
       <% if current_hotel %>
       <ul style="padding-top: 10px;">
-        <li style="color: white;"><%= current_hotel.name %></li>
+        <li style="color: white;"><%# current_hotel.name %></li>
         <li style="float: right; padding-right: 10px;"><%= link_to "Log out", logout_path, method: "delete" %></li>
       </ul>
       <% else %>
@@ -21,16 +21,16 @@
       </ul>
     <% end %>
   </nav>
-    <div class="banner">
-      <p id="notification" style="color: red"><%= notice %></p>
-      <% if current_hotel %>
-      <h1 class="hotelsname"><%= @hotel.name %></h1>
-      <% else %>
-      <h1 class="hotelsname"> Welcome </h1>
-      <% end %>
-    </div>
+  <div class="banner">
+    <p id="notification" style="color: red"><%= notice %></p>
+    <%# if current_hotel %>
+    <h1 class="hotelsname">Hotel</h1>
+    <!-- <%# else %>
+    <h1 class="hotelsname"> Welcome </h1>
+    <%# end %> -->
+  </div>
+
     <!-- <div class="content">
-      <p> this is the container </p>
     <div> -->
 </div>
 

@@ -1,5 +1,6 @@
+<div class="content" style="height: 100%; padding-top: 80px; padding-bottom: 80px;">
 <p id="notice"><%= notice %></p>
-<h1> Visitor info </h1>
+<h1 class="tittle"> Visitor info </h1>
 <p>
   <strong>First name:</strong>
   <%= @user.first_name %>
@@ -10,23 +11,20 @@
   <%= @user.last_name %>
 </p>
 
-<!-- <p>
-  <strong>Hotel:</strong> -->
-  <%# @user.hotel %>
-<!-- </p> -->
-
-
 <div class="field">
-  <h3>Reservations</h3>
+  <h3 class="tittle">Reservations</h3>
   <%= render "reservations/form" %>
+  </div>
 
   <ul>
     <% @user.reservations.each do |reservation|%>
-        <li><p>Check-in</p><%= reservation.arrival %>   <p>Check-out</p><%= reservation.departure %></li>
-        <li><p>Room number</p><%= reservation.room.number %></li>
-        <%= link_to 'Edit', edit_user_reservation_path(@user, reservation) %>
+        <li><p style="color: #0066FF;">Check-in</p><%= reservation.arrival %>   <p style="color: #0066FF;">Check-out</p><%= reservation.departure %></li>
+        <li><p style="color: #0066FF;">Room number</p><%= reservation.room.number %></li>
+        <button><%= link_to 'Edit reservation', edit_user_reservation_path(@user, reservation) %></button>
     <% end %>
   </ul>
 
-    <%= link_to 'Edit Visitor', edit_user_path(@user) %> |
-    <%= link_to 'Done', @user.hotel %>
+    <button><%= link_to 'Edit Visitor', edit_user_path(@user) %></button> |
+    <button><%= link_to 'Done', @user.hotel %></button>
+
+</div>

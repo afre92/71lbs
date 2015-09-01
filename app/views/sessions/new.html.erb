@@ -1,8 +1,9 @@
 
-<div class="content">
+<div class="content" style="text-align: center; padding-top: 80px; padding-bottom: 80px; height: 100%;">
+<h2>Log in</h2>
 <%= form_for(:session, url: login_path) do |f| %>
-  <%= f.email_field :email, :placeholder => "Email" %>
-  <%= f.password_field :password, :placeholder => "Password" %>
-  <%= f.submit "Log in", class: "btn-submit" %>
+  <%= f.email_field :email, :placeholder => "Email" %><br>
+  <%= f.password_field :password, :placeholder => "Password" %><br>
+  <%= f.submit "Log in", class: "btn-submit" %><br>
 <% end %>
 </div>

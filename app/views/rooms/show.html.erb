@@ -1,32 +1,34 @@
+<div class="content" style="height: 100%; padding-top: 80px; padding-bottom: 80px;">
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Number:</strong>
+  <h2 class="tittle">Number:</h2>
   <%= @room.number %><br>
   <%= link_to 'Edit', edit_room_path(@room) %> |
-  <%= link_to 'Back', rooms_path %>
+  <%= link_to 'Back', @room.hotel%>
 
-  </p>
-  <h2> Reservations </h2>
+</p>
+  <h2 class="tittle">Search reservations </h2>
+  <p> by arrival date </p>
   <p>
   <%= form_tag room_path, :method => 'get' do %>
   <%= date_field_tag :search, params[:search] %>
   <%= submit_tag "Search", :name => nil %>
   <% end %>
-  <p>
+  <a>
   <% @reservations.each do |r| %>
   <%= r.user.first_name %>
   <% if r.departure < Date.today %> <!-- if the visitor is gone already -->
-  <p> was here from</p>
-   <%= r.arrival %> <p>to</p> <%= r.departure %><br>
+  <a> was here from</a><%= r.arrival %> <a>to</a> <%= r.departure %>
    <% else %>
-   <p> is going to be here from </p>
-   <%= r.arrival %> <p>to</p> <%= r.departure %><br>
+   <a> is going to be here from </a>
+   <%= r.arrival %> <a>to</a> <%= r.departure %><br>
    <% end %>
   <% end %>
-</p>
+</a>
 
 <!-- <p>
   <strong>Reservation:</strong>
   <%# @room.reservation %>
 </p> -->
+</div>
