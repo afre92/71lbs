@@ -33,12 +33,14 @@ li {
 
 }
 
+
 .banner {
   width: 100%;
   height: 500px;
   position: fixed;
   top: 40px;
-  background: #707070;
+  background-image: url('/assets/bannerr.jpg');
+  background-size: cover;
 }
 .content {
   width: 100%;
@@ -46,5 +48,14 @@ li {
   top: 540px;
   background: #ebebeb;
   height: 1500px;
+
+}
+
+.hotelsname {
+  text-align: center;
+  font-family: "Tenor Sans", Georgia, serif;
+  color: white;
+  padding-top: 220px;
+  font-size: 60px;
 
 }
